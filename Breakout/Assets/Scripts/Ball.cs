@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour {
     }
 
     //Determines the new direction for the ball object after a collision with the player's paddle.
-    public float collisionWithPlayer(Vector2 ballPosition, Vector2 playerPosition, float playerWidth) {
+    public float CollisionWithPlayer(Vector2 ballPosition, Vector2 playerPosition, float playerWidth) {
         return ((ballPosition.x - playerPosition.x) / playerWidth);
     }
 
@@ -82,7 +82,7 @@ public class Ball : MonoBehaviour {
             }
 
             //Ball direction/velocity after collision with player fix.
-            float result = collisionWithPlayer(transform.position, other.transform.position, ((BoxCollider2D)other.collider).size.x);
+            float result = CollisionWithPlayer(transform.position, other.transform.position, ((BoxCollider2D)other.collider).size.x);
             Vector2 newDirection = new Vector2(result, 1).normalized;
             rigidbody.velocity = newDirection * constantSpeed;
         }

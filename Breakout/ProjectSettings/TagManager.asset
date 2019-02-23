@@ -11,6 +11,7 @@ TagManager:
   - SpeedUp
   - Limit
   - BrickManager
+  - TazerUp
   layers:
   - Default
   - TransparentFX

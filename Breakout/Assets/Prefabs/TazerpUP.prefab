@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7987125831115559097}
   - component: {fileID: 3636504398516077612}
   m_Layer: 0
-  m_Name: TazerpUP 1
-  m_TagString: SpeedUp
+  m_Name: TazerpUP
+  m_TagString: TazerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,3 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b543a3dcb7c0940b636eeac96592cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tazerPrefab: {fileID: 5898755601607510029, guid: 229194761ce0bb64996501ac59fe6d05,
+    type: 3}

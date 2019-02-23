@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3341810258797967461}
   - component: {fileID: 3341810258797967463}
   m_Layer: 0
-  m_Name: SpeedUp
+  m_Name: SpeedpUP
   m_TagString: SpeedUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,3 +131,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adbcd74743f9f848a3169f4e2f4c385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 

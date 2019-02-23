@@ -20,11 +20,13 @@ public class TazerpUP : MonoBehaviour
     {
         if (active == true)
         {
+            GameObject.Find("Player").GetComponent<Player>().RedefinePosition(gameObject);
             blinkCooldown -= Time.deltaTime;
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
                 GameObject.Find("Player").GetComponent<Player>().qtdBuffs--;
+                GameObject.Find("Player").GetComponent<Player>().RemoveBuffFromList(gameObject);
                 Destroy(gameObject);
             }
             if ((timeLeft <= 1) && (blinkCooldown <= 0))
@@ -57,5 +59,12 @@ public class TazerpUP : MonoBehaviour
             active = true;
             GameObject.Find("Player").GetComponent<Player>().SetBuffInList(gameObject);
         }
+    }
+
+    public void RefillTime()
+    {
+        StopCoroutine(tazerPrefab.GetComponent<Tazer>().DispenseTazer(gameObject));
+        timeLeft = 10f;
+        StartCoroutine(tazerPrefab.GetComponent<Tazer>().DispenseTazer(gameObject));
     }
 }
