@@ -7,7 +7,12 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Tests");
+        SceneManager.LoadScene("LevelChooser");
+    }
+
+    //Starts a game level according to the passed int argument.
+    public void StartLevel(int lvl) {
+    	Application.LoadLevel(lvl);
     }
 
     public void QuitGame()
