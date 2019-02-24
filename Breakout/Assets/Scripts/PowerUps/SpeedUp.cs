@@ -21,7 +21,7 @@ public class SpeedUp : MonoBehaviour
     {
         if (active == true)
         {
-            GameObject.Find("Player").GetComponent<Player>().RedefinePosition(gameObject);
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().RedefinePosition(gameObject);
             balls = GameObject.FindGameObjectsWithTag("Ball");
             foreach (GameObject ball in balls)
             {
@@ -35,8 +35,8 @@ public class SpeedUp : MonoBehaviour
                 {
                     ball.GetComponent<Ball>().constantSpeed = GameObject.Find("Ball").GetComponent<Ball>().originalSpeed;
                 }
-                GameObject.Find("Player").GetComponent<Player>().qtdBuffs--;
-                GameObject.Find("Player").GetComponent<Player>().RemoveBuffFromList(gameObject);
+                GameObject.Find("PlayerManager").GetComponent<PlayerManager>().qtdBuffs--;
+                GameObject.Find("PlayerManager").GetComponent<PlayerManager>().RemoveBuffFromList(gameObject);
                 Destroy(gameObject);
             }
             if ((timeLeft <= 1) && (blinkCooldown <= 0))
@@ -66,7 +66,7 @@ public class SpeedUp : MonoBehaviour
         {
             timeLeft = 3f;
             active = true;
-            GameObject.Find("Player").GetComponent<Player>().SetBuffInList(gameObject);
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().SetBuffInList(gameObject);
         }
     }
 

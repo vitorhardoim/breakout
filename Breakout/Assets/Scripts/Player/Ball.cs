@@ -61,12 +61,12 @@ public class Ball : MonoBehaviour {
         }
         if(other.gameObject.tag == "Brick")
         {
-            GameObject.Find("Player").GetComponent<Player>().streak++;
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak++;
         }
         if (other.gameObject.tag == "Paddle")
         {
             rollingBallBug = true;
-            GameObject.Find("Player").GetComponent<Player>().streak = 0;
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak = 0;
             if (sideBallBug)
             {
                 if (rigidbody.position.x < 0)

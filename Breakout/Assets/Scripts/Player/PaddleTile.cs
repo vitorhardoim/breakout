@@ -19,14 +19,14 @@ public class PaddleTile : MonoBehaviour
         if (rb.transform.position.x > 0)
         {
             type = "right";
-            qtdRight = GameObject.Find("Player").GetComponent<Player>().qtdRight;
-            GameObject.Find("Player").GetComponent<Player>().qtdRight++;
+            qtdRight = GameObject.Find("PlayerManager").GetComponent<PlayerManager>().qtdRight;
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().qtdRight++;
         }
         if (rb.transform.position.x < 0)
         {
             type = "left";
-            qtdLeft = GameObject.Find("Player").GetComponent<Player>().qtdLeft;
-            GameObject.Find("Player").GetComponent<Player>().qtdLeft++;
+            qtdLeft = GameObject.Find("PlayerManager").GetComponent<PlayerManager>().qtdLeft;
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().qtdLeft++;
         }
 
     }

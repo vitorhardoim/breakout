@@ -16,8 +16,8 @@ public class Bounds : MonoBehaviour {
         if (other.gameObject.tag == "Ball")
         {
             other.GetComponent<Ball>().Respawn();
-            GameObject.Find("Player").GetComponent<Player>().streak = 0;
-            GameObject.Find("Player").GetComponent<Player>().lifes--;
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak = 0;
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().lifes--;
         }
         
     }

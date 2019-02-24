@@ -15,49 +15,25 @@ public class SimpleBrick : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         life = initialLife;
-        if (life <= 1)
-        {
-            life = 1;
-        }
-        if (life > 6)
-        {
-            life = 6;
-        }
+        if (life <= 1) life = 1;
+        if (life > 6) life = 6;
     }
 
     void Update()
     {
-        if(life == 1)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.white;
-        }
-        if (life == 2)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.green;
-        }
-        if (life == 3)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.blue;
-        }
-        if (life == 4)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.magenta;
-        }
-        if (life == 5)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        if (life == 6)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.black;
-        }
+        if (life == 1) gameObject.GetComponent<Renderer>().material.color = Color.white;
+        if (life == 2) gameObject.GetComponent<Renderer>().material.color = Color.green;
+        if (life == 3) gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        if (life == 4) gameObject.GetComponent<Renderer>().material.color = Color.magenta;
+        if (life == 5) gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+        if (life == 6) gameObject.GetComponent<Renderer>().material.color = Color.black;
     }
 
     private void LateUpdate()
     {
         if (life <= 0)
         {
-            GameObject.Find("Player").GetComponent<Player>().score += GameObject.Find("Player").GetComponent<Player>().streak * (int)initialLife * 10;
+            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().score += GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak * (int)initialLife * 10;
             Drop(speedUpPrefab);
             Destroy(gameObject);
         }
