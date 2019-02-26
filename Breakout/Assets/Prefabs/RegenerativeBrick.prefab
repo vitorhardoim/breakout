@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &86271639434441751
+--- !u!1 &1112283360618377110
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6481828252460663015}
-  - component: {fileID: 98581841677101337}
-  - component: {fileID: 6906654958018177139}
-  - component: {fileID: 3327829662142990543}
-  - component: {fileID: 2357143606526966602}
+  - component: {fileID: 1319690499677329651}
+  - component: {fileID: 421940858342835979}
+  - component: {fileID: 3468410404959824916}
+  - component: {fileID: 6280112935721050945}
+  - component: {fileID: 2907772443322442802}
   m_Layer: 0
-  m_Name: SimpleBrick
+  m_Name: RegenerativeBrick
   m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6481828252460663015
+--- !u!4 &1319690499677329651
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86271639434441751}
+  m_GameObject: {fileID: 1112283360618377110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.26, y: 4.51, z: 0.06640625}
+  m_LocalPosition: {x: 1.85, y: -1.51, z: 0.06640625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &98581841677101337
+--- !u!212 &421940858342835979
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86271639434441751}
+  m_GameObject: {fileID: 1112283360618377110}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -70,9 +70,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 43ce7d0c19ca05348962b2c600453a2b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.08701134, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,13 +82,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6906654958018177139
+--- !u!61 &3468410404959824916
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86271639434441751}
+  m_GameObject: {fileID: 1112283360618377110}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -108,32 +108,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56666666, y: 0.22222222}
   m_EdgeRadius: 0
---- !u!114 &3327829662142990543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86271639434441751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c55050797b0f3b4fa17938d268473a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chance: 5
-  initialLife: 0
-  life: 0
-  powerUpList:
-  - {fileID: 3341810258797967514, guid: 41060ef10c32696438e25d66a44bc83e, type: 3}
-  - {fileID: 7987125831115558982, guid: 2446e82e36f47f843ac1b41377e934b8, type: 3}
---- !u!50 &2357143606526966602
+--- !u!50 &6280112935721050945
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86271639434441751}
+  m_GameObject: {fileID: 1112283360618377110}
   m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -147,3 +129,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2907772443322442802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112283360618377110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dd114eb71375a42844a4fa7cbcd40c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chance: 0
+  initialLife: 2
+  life: 0
+  powerUpList:
+  - {fileID: 0}
+  - {fileID: 0}
+  rb: {fileID: 0}
+  summonedBrick: {fileID: 86271639434441751, guid: 49e900a844627ac4aa450f1940173ecf,
+    type: 3}
+  extraBricks:
+  - {fileID: 86271639434441751, guid: 49e900a844627ac4aa450f1940173ecf, type: 3}
+  - {fileID: 86271639434441751, guid: 49e900a844627ac4aa450f1940173ecf, type: 3}
+  - {fileID: 86271639434441751, guid: 49e900a844627ac4aa450f1940173ecf, type: 3}
+  - {fileID: 86271639434441751, guid: 49e900a844627ac4aa450f1940173ecf, type: 3}

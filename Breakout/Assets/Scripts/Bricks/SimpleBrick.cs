@@ -2,19 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleBrick : MonoBehaviour
+public class SimpleBrick : BaseBrick
 {
-    public int chance;
-    public float initialLife;
-    float life;
 
-    public GameObject speedUpPrefab;
-    private Rigidbody2D rb;
-
-    void Start()
+    new void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        life = initialLife;
+        base.Start();
         if (life <= 1) life = 1;
         if (life > 6) life = 6;
     }
@@ -29,30 +22,12 @@ public class SimpleBrick : MonoBehaviour
         if (life == 6) gameObject.GetComponent<Renderer>().material.color = Color.black;
     }
 
-    private void LateUpdate()
+    new void LateUpdate()
     {
+        base.LateUpdate();
         if (life <= 0)
         {
-            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().score += GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak * (int)initialLife * 10;
-            Drop(speedUpPrefab);
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.tag == "Ball")
-        {
-            life -= other.gameObject.GetComponent<Ball>().damage;
-        }
-    }
-
-    private void Drop(GameObject powerUp)
-    {
-        int randomValue = Random.Range(0, 100);
-        if(randomValue<= chance)
-        {
-            Instantiate(speedUpPrefab, rb.position, Quaternion.identity);
+            Drop(powerUpList[0]);
         }
     }
 }

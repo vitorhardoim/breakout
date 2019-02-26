@@ -30,7 +30,6 @@ public class PlayerManager : MonoBehaviour
         qtdRight = 0;
         qtdLeft = 0;
         FillPositions();
-        Debug.Log(usedSlots[0]);
     }
 
     void Update()
