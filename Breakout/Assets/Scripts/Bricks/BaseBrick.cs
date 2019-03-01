@@ -27,7 +27,7 @@ public class BaseBrick : MonoBehaviour
 
     public void OnDestroy()
     {
-        GameObject.Find("PlayerManager").GetComponent<PlayerManager>().score += GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak * (int)initialLife * 10;
+       PlayerManager.instance.score += PlayerManager.instance.streak * (int)initialLife * 10;
     }
 
     public void OnCollisionEnter2D(Collision2D other)
