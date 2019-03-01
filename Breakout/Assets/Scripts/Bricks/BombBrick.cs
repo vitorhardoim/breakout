@@ -5,26 +5,18 @@ using UnityEngine;
 
 public class BombBrick : BaseBrick
 {
-    bool explode;
-    public GameObject explosion;
+    Collider2D[] otherBricks = new Collider2D[20];
 
-    private void Update()
+    private new void OnDestroy()
     {
-        if (explode)
+        base.OnDestroy();
+        Physics2D.OverlapCircle(gameObject.GetComponent<Renderer>().bounds.center, 0.9f, default, otherBricks);
+        foreach (Collider2D col in otherBricks)
         {
-            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-            if(explosion = null)
+            if ((col != null) && (col.gameObject.tag == "Brick"))
             {
-                Destroy(gameObject);
+                Destroy(col.gameObject);
             }
-        }
-    }
-
-    new void LateUpdate()
-    {
-        if(life <= 0)
-        {
-            explode = true;
         }
     }
 }

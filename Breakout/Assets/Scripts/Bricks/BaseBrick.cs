@@ -21,9 +21,13 @@ public class BaseBrick : MonoBehaviour
     {
         if (life <= 0)
         {
-            GameObject.Find("PlayerManager").GetComponent<PlayerManager>().score += GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak * (int)initialLife * 10;
             Destroy(gameObject);
         }
+    }
+
+    public void OnDestroy()
+    {
+        GameObject.Find("PlayerManager").GetComponent<PlayerManager>().score += GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak * (int)initialLife * 10;
     }
 
     public void OnCollisionEnter2D(Collision2D other)

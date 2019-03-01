@@ -24,12 +24,6 @@ public class RegenerativeBrick : BaseBrick
         gaps[2] = new Vector2(0, -0.5f);
         gaps[3] = new Vector2(-0.8f, 0);
 
-        velocities = new Vector2[4];
-        velocities[0] = new Vector2(0,1);
-        velocities[1] = new Vector2(1,0);
-        velocities[2] = new Vector2(0,-1);
-        velocities[3] = new Vector2(-1,0);
-
         extraBricks[0] = Instantiate(summonedBrick, new Vector2(rb.position.x, rb.position.y) + new Vector2(0, 0.5f), Quaternion.identity);
         extraBricks[1] = Instantiate(summonedBrick, new Vector2(rb.position.x, rb.position.y) + new Vector2(0.8f, 0), Quaternion.identity);
         extraBricks[2] = Instantiate(summonedBrick, new Vector2(rb.position.x, rb.position.y) + new Vector2(0, -0.5f), Quaternion.identity);

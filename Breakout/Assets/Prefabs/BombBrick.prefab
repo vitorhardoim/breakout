@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 716736026740294734}
   - component: {fileID: 5209458185619279532}
   - component: {fileID: 7611934233927244373}
-  - component: {fileID: 3978059281236847730}
   - component: {fileID: 66747257016409340}
+  - component: {fileID: 1767645148202942062}
   m_Layer: 0
   m_Name: BombBrick
   m_TagString: Brick
@@ -108,25 +108,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56666666, y: 0.22222222}
   m_EdgeRadius: 0
---- !u!114 &3978059281236847730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1767645148202942061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c55050797b0f3b4fa17938d268473a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chance: 5
-  initialLife: 0
-  life: 0
-  powerUpList:
-  - {fileID: 3341810258797967514, guid: 41060ef10c32696438e25d66a44bc83e, type: 3}
-  - {fileID: 7987125831115558982, guid: 2446e82e36f47f843ac1b41377e934b8, type: 3}
-  rb: {fileID: 0}
 --- !u!50 &66747257016409340
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +129,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1767645148202942062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767645148202942061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fdebb43769e5341a679b8684243397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chance: 0
+  initialLife: 1
+  life: 0
+  powerUpList:
+  - {fileID: 0}
+  - {fileID: 0}
+  rb: {fileID: 0}
+  otherBricks: []
