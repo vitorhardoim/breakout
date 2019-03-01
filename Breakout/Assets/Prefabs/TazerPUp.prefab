@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7987125831115559097}
   - component: {fileID: 5578166851642980087}
   m_Layer: 0
-  m_Name: TazerPUp
+  m_Name: TazerPUp 1
   m_TagString: TazerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,4 +137,5 @@ MonoBehaviour:
   blinkCooldown: 0
   users: []
   rb: {fileID: 0}
-  tazerPrefab: {fileID: 0}
+  tazerPrefab: {fileID: 5898755601607510029, guid: 229194761ce0bb64996501ac59fe6d05,
+    type: 3}
