@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance;
+
     public int streak;
     public int score;
     int lastScore;
@@ -23,6 +25,14 @@ public class PlayerManager : MonoBehaviour
     List<Vector2> buffsPositions = new List<Vector2>();
     public bool[] usedSlots = new bool[9];
 
+
+    ///////////////////////////
+    public Inventory inventory;
+
+    void Awake() {
+        instance = this;
+    }
+
     void Start()
     {
         score = 0;
@@ -30,6 +40,7 @@ public class PlayerManager : MonoBehaviour
         qtdRight = 0;
         qtdLeft = 0;
         FillPositions();
+        inventory = new Inventory();
     }
 
     void Update()
@@ -107,6 +118,7 @@ public class PlayerManager : MonoBehaviour
             {
                 buff.transform.position = buffsPositions[i];
                 usedSlots[i] = true;
+                //usedSlots[position-i] = false;
                 usedSlots[position] = false;
                 return;
             }
@@ -123,11 +135,11 @@ public class PlayerManager : MonoBehaviour
                 {
                     if (buff.tag == "SpeedUp")
                     {
-                        buffObject.GetComponent<SpeedUp>().RefillTime();
+                        buffObject.GetComponent<SpeedPUp>().RefillTime();
                     }
                     if (buff.name == "TazerUp")
                     {
-                        buffObject.GetComponent<TazerpUP>().RefillTime();
+                        buffObject.GetComponent<TazerPUp>().RefillTime();
                     }
                     return true;
                 }
@@ -158,5 +170,5 @@ public class PlayerManager : MonoBehaviour
         {
             buffsPositions.Add(new Vector2(8.33f, 4.22f - (0.7f*i)));
         }
-    }
+    }    
 }
