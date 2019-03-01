@@ -8,7 +8,6 @@ public class Ball : MonoBehaviour {
     public float damage;
     private Rigidbody2D rigidbody;
     private bool sideBallBug;
-    private bool rollingBallBug;
 
 	// Use this for initialization
 	void Start () {
@@ -24,16 +23,9 @@ public class Ball : MonoBehaviour {
 
     }
 
-    private void FixedUpdate()
-    {
-        if (rigidbody.velocity.y < 1.5 && rigidbody.velocity.y > -1.5)
-        {
-            rigidbody.gravityScale = 3;
-        }
-        else
-        {
-            rigidbody.gravityScale = 0;
-        }
+    private void FixedUpdate() {
+        if (rigidbody.velocity.y < 1.5 && rigidbody.velocity.y > -1.5) rigidbody.gravityScale = 3;
+        else rigidbody.gravityScale = 0;
     }
 
     //Determines the new direction for the ball object after a collision with the player's paddle.
@@ -50,7 +42,6 @@ public class Ball : MonoBehaviour {
     private void LateUpdate()
     {
         rigidbody.velocity = constantSpeed * (rigidbody.velocity.normalized);
-        rollingBallBug = false;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -59,13 +50,12 @@ public class Ball : MonoBehaviour {
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x + other.rigidbody.velocity.x/5, rigidbody.velocity.y);
         }
-        if(other.gameObject.tag == "Brick")
+        if (other.gameObject.tag == "Brick")
         {
             GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak++;
         }
         if (other.gameObject.tag == "Paddle")
         {
-            rollingBallBug = true;
             GameObject.Find("PlayerManager").GetComponent<PlayerManager>().streak = 0;
             if (sideBallBug)
             {
