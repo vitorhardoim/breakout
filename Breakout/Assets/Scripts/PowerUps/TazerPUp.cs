@@ -16,13 +16,13 @@ public class TazerPUp : Item, IPowerUp {
 
     //Reorganize the object's position on the inventory.
     public void Activate() {
-        PlayerManager.instance.RedefinePosition(gameObject);
+        PlayerManager.instance.inventory.RedefinePosition(gameObject);
     }
 
     //Deactivates the power-up and destroy its related game object. Also, removes the power-up from the inventory list.
     public void Deactivate() {
-        PlayerManager.instance.qtdBuffs--;
-        PlayerManager.instance.RemoveBuffFromList(gameObject);
+        PlayerManager.instance.inventory.qtdItems--;
+        PlayerManager.instance.inventory.Remove(gameObject);
         Destroy(gameObject);
     }
 
@@ -31,7 +31,7 @@ public class TazerPUp : Item, IPowerUp {
             StartCoroutine(tazerPrefab.GetComponent<Tazer>().DispenseTazer(gameObject));
             timeLeft = 10f;
             isActive = true;
-            PlayerManager.instance.SetBuffInList(gameObject);
+            PlayerManager.instance.inventory.Add(gameObject);
         }
     }
 

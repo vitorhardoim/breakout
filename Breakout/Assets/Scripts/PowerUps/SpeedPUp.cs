@@ -15,7 +15,7 @@ public class SpeedPUp : Item, IPowerUp {
 
     //Enchances the speed of every ball on screen.
     public void Activate() {
-        PlayerManager.instance.RedefinePosition(gameObject);
+        PlayerManager.instance.inventory.RedefinePosition(gameObject);
         users = GameObject.FindGameObjectsWithTag("Ball");
         foreach (GameObject ball in users)
             ball.GetComponent<Ball>().constantSpeed = GameObject.Find("Ball").GetComponent<Ball>().originalSpeed + 5;    
@@ -25,8 +25,8 @@ public class SpeedPUp : Item, IPowerUp {
     public void Deactivate() {
     	foreach (GameObject ball in users)
             ball.GetComponent<Ball>().constantSpeed = GameObject.Find("Ball").GetComponent<Ball>().originalSpeed;
-        PlayerManager.instance.qtdBuffs--;
-        PlayerManager.instance.RemoveBuffFromList(gameObject);
+        PlayerManager.instance.inventory.qtdItems--;
+        PlayerManager.instance.inventory.Remove(gameObject);
         Destroy(gameObject);
     }
 
@@ -34,7 +34,7 @@ public class SpeedPUp : Item, IPowerUp {
         if (other.gameObject.tag == "Paddle") {
             timeLeft = 3f;
             isActive = true;
-            PlayerManager.instance.SetBuffInList(gameObject);
+            PlayerManager.instance.inventory.Add(gameObject);
         }
     }
 
