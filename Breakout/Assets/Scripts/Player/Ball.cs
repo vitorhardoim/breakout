@@ -34,7 +34,8 @@ public class Ball : MonoBehaviour {
     }
 
     public void Respawn(){
-		transform.position = new Vector2(0,-1.5f);
+		//transform.position = new Vector2(0,-1.5f);
+		transform.position = new Vector2(GameObject.Find("Paddle").GetComponent<Paddle>().transform.position.x, -1.5f);
 		Vector2 direction = new Vector2(0, -1).normalized;
         rigidbody.velocity = direction * constantSpeed;
 	}
