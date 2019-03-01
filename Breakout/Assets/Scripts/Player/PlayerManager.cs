@@ -14,24 +14,15 @@ public class PlayerManager : MonoBehaviour
     public int lifes;
     public float qtdRight;
     public float qtdLeft;
-    public int qtdBuffs;
-    GameObject[] activeBuffs = new GameObject[9];
 
     public GameObject Canvas;
     public Text[] scoreTexts;
     public Text lifeText;
     public Text streakText;
 
-    List<Vector2> buffsPositions = new List<Vector2>();
-    public bool[] usedSlots = new bool[9];
-
-
-    ///////////////////////////
     public Inventory inventory;
 
-    void Awake() {
-        instance = this;
-    }
+    void Awake() { instance = this; }
 
     void Start()
     {
@@ -39,8 +30,8 @@ public class PlayerManager : MonoBehaviour
         lifes = 3;
         qtdRight = 0;
         qtdLeft = 0;
-        FillPositions();
         inventory = new Inventory();
+        inventory.FillPositions();
     }
 
     void Update()
@@ -92,83 +83,5 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void SetBuffInList(GameObject buff)
-    {
-        buff.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        if (BuffAlreadyInList(buff))
-        {
-            Destroy(buff);
-        }
-        else
-        {
-            activeBuffs[qtdBuffs] = buff;
-            buff.transform.position = buffsPositions[qtdBuffs];
-            usedSlots[qtdBuffs] = true;
-            qtdBuffs++;
-        }
         
-    }
-
-    public void RedefinePosition(GameObject buff)
-    {
-        int position = System.Array.IndexOf(activeBuffs, buff);
-        for(int i = 0; i < position; i++)
-        {
-            if(usedSlots[i] == false)
-            {
-                buff.transform.position = buffsPositions[i];
-                usedSlots[i] = true;
-                //usedSlots[position-i] = false;
-                usedSlots[position] = false;
-                return;
-            }
-        }
-    }
-
-    public bool BuffAlreadyInList(GameObject buff)
-    {
-        foreach(GameObject buffObject in activeBuffs)
-        {
-            if(buffObject != null)
-            {
-                if (buffObject.tag == buff.tag)
-                {
-                    if (buff.tag == "SpeedUp")
-                    {
-                        buffObject.GetComponent<SpeedPUp>().RefillTime();
-                    }
-                    if (buff.name == "TazerUp")
-                    {
-                        buffObject.GetComponent<TazerPUp>().RefillTime();
-                    }
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public void RemoveBuffFromList(GameObject buff)
-    {
-        foreach (GameObject buffObject in activeBuffs)
-        {
-            if (buffObject != null)
-            {
-                if (buffObject.tag == buff.tag)
-                {
-                    int temp = System.Array.IndexOf(activeBuffs, buffObject);
-                    activeBuffs[temp] = null;
-                    usedSlots[temp] = false;
-                }
-            }
-        }
-    }
-
-    void FillPositions()
-    {
-        for (int i = 0; i <= 9; i++)
-        {
-            buffsPositions.Add(new Vector2(8.33f, 4.22f - (0.7f*i)));
-        }
-    }    
 }
