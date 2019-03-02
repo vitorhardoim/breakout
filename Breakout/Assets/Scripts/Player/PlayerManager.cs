@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
         lifeText.text = "x" + lifes;
     }
 
-    private void UpdateStreak() { 
+    private void UpdateStreak() {
         streakText.text = streak + "x";
         switch (streak) {
             case 1:

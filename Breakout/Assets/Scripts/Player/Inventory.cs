@@ -27,7 +27,6 @@ public class Inventory : MonoBehaviour {
             if(usedSlots[i] == false) {
                 it.transform.position = itemsPositions[i];
                 usedSlots[i] = true;
-                //usedSlots[position-i] = false;
                 usedSlots[position] = false;
                 return;
             }

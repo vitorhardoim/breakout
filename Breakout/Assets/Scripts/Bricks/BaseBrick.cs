@@ -25,9 +25,11 @@ public class BaseBrick : MonoBehaviour
         }
     }
 
-    public void OnDestroy()
-    {
-       PlayerManager.instance.score += PlayerManager.instance.streak * (int)initialLife * 10;
+    public void OnDestroy() {
+       if (PlayerManager.instance.streak != 0) 
+           PlayerManager.instance.score += PlayerManager.instance.streak * (int)initialLife * 10;
+       else PlayerManager.instance.score += 1 * (int)initialLife * 10;
+    
     }
 
     public void OnCollisionEnter2D(Collision2D other)

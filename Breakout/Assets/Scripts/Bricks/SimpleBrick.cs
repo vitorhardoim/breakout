@@ -27,7 +27,8 @@ public class SimpleBrick : BaseBrick
         base.LateUpdate();
         if (life <= 0)
         {
-            Drop(powerUpList[0]);
+            System.Random r = new System.Random();
+            Drop(powerUpList[r.Next(0, powerUpList.Length)]);
         }
     }
 }
