@@ -25,7 +25,7 @@ public class SpeedPUp : Item, IPowerUp {
     public void Deactivate() {
     	foreach (GameObject ball in users)
             ball.GetComponent<Ball>().constantSpeed = GameObject.Find("Ball").GetComponent<Ball>().originalSpeed;
-        PlayerManager.instance.inventory.qtdItems--;
+        //PlayerManager.instance.inventory.qtdItems--;
         PlayerManager.instance.inventory.Remove(gameObject);
         Destroy(gameObject);
     }

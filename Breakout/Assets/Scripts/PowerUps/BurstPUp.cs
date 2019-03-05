@@ -29,7 +29,7 @@ public class BurstPUp : Item, IPowerUp {
 
     //Deactivates the power-up and destroy its related game object. Also, removes the power-up from the inventory list.
     public void Deactivate() {
-        PlayerManager.instance.inventory.qtdItems--;
+        //PlayerManager.instance.inventory.qtdItems--;
         PlayerManager.instance.inventory.Remove(gameObject);
         Destroy(gameObject);
     }
